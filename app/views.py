@@ -8,8 +8,8 @@ This file creates your application.
 from app import app, db, login_manager
 from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, current_user, login_required
-from forms import LoginForm
-from models import UserProfile
+from app.forms import LoginForm
+from app.models import UserProfile
 
 
 ###
@@ -38,9 +38,10 @@ def login():
             # Get the username and password values from the form.
 
             # using your model, query database for a user based on the username
-            # and password submitted
-            # store the result of that query to a `user` variable so it can be
-            # passed to the login_user() method.
+            # and password submitted. Remember you need to compare the password hash.
+            # You will need to import the appropriate function to do so.
+            # Then store the result of that query to a `user` variable so it can be
+            # passed to the login_user() method below.
 
             # get user id, load into session
             login_user(user)
